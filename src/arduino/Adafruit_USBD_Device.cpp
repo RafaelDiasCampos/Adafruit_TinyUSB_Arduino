@@ -293,7 +293,7 @@ uint8_t Adafruit_USBD_Device::getSerialDescriptor(uint16_t *serial_utf16) {
 
     return 2 * serial_len;
   } else {
-    return strcpy_utf16(_desc_str_arr[STRID_SERIAL], serial_utf16 + 1, 32);
+    return strcpy_utf16(_desc_str_arr[STRID_SERIAL], serial_utf16 + 1, DESC_STR_MAX_CHARS);
   }
 }
 
@@ -319,7 +319,7 @@ uint16_t const *Adafruit_USBD_Device::descriptor_string_cb(uint8_t index,
       return NULL;
     }
 
-    chr_count = strcpy_utf16(_desc_str_arr[index], _desc_str + 1, 32);
+    chr_count = strcpy_utf16(_desc_str_arr[index], _desc_str + 1, DESC_STR_MAX_CHARS);
     break;
   }
 

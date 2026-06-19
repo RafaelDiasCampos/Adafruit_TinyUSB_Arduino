@@ -33,6 +33,10 @@
 #include "esp32-hal-tinyusb.h"
 #endif
 
+#ifndef DESC_STR_MAX_CHARS
+#define DESC_STR_MAX_CHARS 126
+#endif
+
 #if CFG_TUD_ENABLED
 
 class Adafruit_USBD_Device {
@@ -56,7 +60,7 @@ private:
   // String descriptor
   const char *_desc_str_arr[STRING_DESCRIPTOR_MAX];
   uint8_t _desc_str_count;
-  uint16_t _desc_str[32 + 1]; // up to 32 unicode characters with headers
+  uint16_t _desc_str[DESC_STR_MAX_CHARS + 1]; // up to DESC_STR_MAX_CHARS unicode characters with headers
 
 public:
   Adafruit_USBD_Device(void);
