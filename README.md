@@ -5,6 +5,13 @@
 This library is a Arduino-friendly version of [TinyUSB](https://github.com/hathach/tinyusb) stack.
 It is designed with structure and APIs that are easily integrated to an Arduino Core.
 
+## Changes added
+
+This repository implemented the following changes to the original library:
+
+* Replaced magic values in the code used to determine the maximum length of USB string descriptors with the option DESC_STR_MAX_CHARS
+* Changed the maximum length of USB string descriptors from 32 to the maximum length allowed by USB of 128
+
 ## Features
 
 ### Device Stack
